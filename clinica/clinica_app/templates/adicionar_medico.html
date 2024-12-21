@@ -1,0 +1,38 @@
+{% include 'base.html' %}
+{% include 'navegacao.html' %}
+{% block content %}
+
+{% if error == "no" %}
+<script>
+    alert('Médico {{ mensagem }} com sucesso!');
+    window.location = "{% url 'ver_medicos' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Ocorreu um erro ao {{ acao }} o médico!');
+</script>
+{% endif %}
+
+<div class="container">
+    <h2 class="text-center">{{ titulo }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Nome Médico</label>
+        <input type="text" class="form-control" name="nome" value="{{ medico.nome_medico|default_if_none:'' }}">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" value="{{ medico.email|default_if_none:'' }}">
+        <label>CRM</label>
+        <input type="text" class="form-control" name="crm" value="{{ medico.crm|default_if_none:'' }}">
+        <label>Número</label>
+        <input type="text" class="form-control" name="telefone" value="{{ medico.telefone|default_if_none:'' }}">
+        <label>Especialidade</label>
+        <input type="text" class="form-control" name="especialidade" value="{{ medico.especialidade|default_if_none:'' }}">
+        <br>
+        <input type="submit" value="Salvar" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{% endblock content %}
+{% include 'rodape.html' %}

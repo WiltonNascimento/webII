@@ -1,0 +1,35 @@
+{% include 'base.html' %}
+{% include 'navegacao.html' %}
+{% block content %}
+
+
+{% if error == "no" %}
+<script>
+    alert('Login realizado com sucesso!');
+    window.location = "{% url 'dashboard' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Usuário ou senha inválidos, tente novamente!');
+</script>
+{% endif %}
+
+
+<div class="container">
+    <h2 class="text-center">Login Administrador</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Nome Administrador</label>
+        <input type="text" class="form-control" name="nome">
+        <label>Senha</label>
+        <input type="password" class="form-control" name="senha">
+
+        <input style="margin-top: 20px;" type="submit" value="login" class="form-control btn btn-primary">
+
+    </form>
+
+</div>
+{% endblock content %}
+{% include 'rodape.html' %}

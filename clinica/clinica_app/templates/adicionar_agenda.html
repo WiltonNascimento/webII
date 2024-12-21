@@ -1,0 +1,51 @@
+{% include 'base.html' %}
+{% include 'navegacao.html' %}
+{% block content %}
+
+{% if error == "no" %}
+<script>
+    alert('Consulta {{ mensagem }} com sucesso!');
+    window.location = "{% url 'ver_agenda' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Ocorreu um erro ao {{ acao }} a consulta!');
+</script>
+{% endif %}
+
+<div class="container">
+    <h2 class="text-center">{{ titulo }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="medico">Médico</label>
+        <select name="medico" class="form-control">
+            {% for med in medico %}
+            <option value="{{ med.id }}" {% if med.id == agendamento.medico.id %}selected{% endif %}>
+                {{ med.nome_medico }}
+            </option>
+            {% endfor %}
+        </select>
+        
+        <label for="paciente">Paciente</label>
+        <select name="paciente" class="form-control">
+            {% for pac in paciente %}
+            <option value="{{ pac.id }}" {% if pac.id == agendamento.paciente.id %}selected{% endif %}>
+                {{ pac.nome_paciente }}
+            </option>
+            {% endfor %}
+        </select>
+        <label>Data</label>
+        <input type="date" class="form-control" name="data" value="{{ agendamento.data }}">
+        <label>Hora</label>
+        <input type="time" class="form-control" name="hora" value="{{ agendamento.hora }}">
+        <label>Observações</label>
+        <input type="text" class="form-control" name="observacoes" value="{{ agendamento.observacoes }}">
+        <br>
+        <input type="submit" value="Salvar" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{% endblock content %}
+{% include 'rodape.html' %}

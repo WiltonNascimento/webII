@@ -1,0 +1,38 @@
+{% include 'base.html' %}
+{% include 'navegacao.html' %}
+{% block content %}
+<div>
+    <br>
+    <h2 class="text-center"> Agendamentos</h2>
+    <table id="example" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Médico</th>
+                <th>especialidade</th>
+                <th>Paciente</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Observações</th>
+                <td>Editar</td>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in doc %}
+            <tr>
+                <td>{{i.medico.nome_medico}}</td>
+                <td>{{i.medico.especialidade }}</td>
+                <td>{{i.paciente.nome_paciente}}</td>
+                <td>{{i.data}}</td>
+                <td>{{i.hora}}</td>
+                <td>{{i.observacoes}}</td>
+                <td><a href="{% url 'editar_agendamento' i.id %}" class="btn btn-warning">Editar</a></td>
+                <td><a href="{% url 'deletar_agenda' i.id %}" onclick="return confirm('Deseja relamente Deletar?')" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content%}
+{% include 'rodape.html' %}

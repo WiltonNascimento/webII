@@ -1,0 +1,40 @@
+{% include 'base.html' %}
+{% include 'navegacao.html' %}
+{% block content %}
+
+{% if error == "no" %}
+<script>
+    alert('Paciente {{ mensagem }} com sucesso!');
+    window.location = "{% url 'ver_pacientes' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Ocorreu um erro ao {{ mensagem }} o paciente!');
+</script>
+{% endif %}
+
+<div class="container">
+    <h2 class="text-center">{{ titulo }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Nome Paciente</label>
+        <input type="text" class="form-control" name="nome">
+        <label>Documento</label>
+        <input type="text" class="form-control" name="documento">
+        <label>Gênero</label>
+        <input type="text" class="form-control" name="genero">
+        <label>Data de nascimento</label>
+        <input type="date" class="form-control" name="nascimento">
+        <label>Número</label>
+        <input type="text" class="form-control" name="telefone">
+        <label>Endereço</label>
+        <input type="text" class="form-control" name="endereco">
+        <br>
+        <input type="submit" value="Salvar" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{% endblock content %}
+{% include 'rodape.html' %}

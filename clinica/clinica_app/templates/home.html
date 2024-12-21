@@ -1,0 +1,181 @@
+{% include 'base.html' %}
+{% load static %}
+{% include 'navegacao.html' %}
+
+{% block context %}
+
+<!-- Carousel -->
+<div id="carousel-slider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-slider" data-slide-to="1"></li>
+        <li data-target="#carousel-slider" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'imagens/carrosel1.jpg' %}" class="d-block w-100" alt="Cuidados pós-operatórios">
+            <div class="carousel-caption text-white">
+                <h2>Cuidados pós-operatórios</h2>
+                <p>Cuidados após cirurgia incluem gerenciamento da dor e cuidado com feridas, dependendo do procedimento e histórico de saúde.</p>
+                <a href="#departments" class="btn btn-light">Ver Todos os Serviços</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'imagens/atendendo_1.jpg' %}" class="d-block w-100" alt="Cirurgia">
+            <div class="carousel-caption text-white">
+                <h2>Cirurgia</h2>
+                <p>A cirurgia trata condições patológicas, melhora funções corporais e repara áreas danificadas.</p>
+                <a href="#departments" class="btn btn-light">Ver Todos os Serviços</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'imagens/equipe_medica.png' %}" class="d-block w-100" alt="UTI Neonatal">
+            <div class="carousel-caption text-white">
+                <h2>Unidade de Terapia Intensiva Neonatal</h2>
+                <p>Cuidado especializado para recém-nascidos doentes ou prematuros.</p>
+                <a href="#departments" class="btn btn-light">Ver Todos os Serviços</a>
+            </div>
+        </div>
+    </div>
+
+    <a class="carousel-control-prev" href="#carousel-slider" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-slider" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+    </a>
+</div>
+
+<!-- Introdução -->
+<section class="container my-5" id="intro">
+    <div class="d-flex flex-column align-items-center text-center">
+        <div class="col-md-8">
+            <h1 class="text-center">Bem-vindo ao Sistema de Gestão Clínica Saúde</h1>
+            <p>Sistema localizado em Senhor do Bonfim, oferecendo serviços como radiografia e cirurgias com médicos renomados.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Serviços Médicos -->
+<section class="container my-5" id="departments">
+    <div class="text-center">
+        <h4 class="text-primary">Departamentos</h4>
+        <h1>Serviços Médicos</h1>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
+                    <img src="{% static 'imagens/gine.jpeg' %}" class="card-img-top" alt="Ginecologia" style="width: 50%;">
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><h2>Ginecologista</h2</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
+                    <img src="{% static 'imagens/Radiografia.png' %}" class="card-img-top" alt="Radiologia" style="width: 50%;">
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><h2>Radiologia</h2></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
+                    <img src="{% static 'imagens/ortopedia.jpg' %}" class="card-img-top" alt="Cirurgia" style="width: 50%;">
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><h2>Cirurgia Geral</h2></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Outros Serviços -->
+<section class="container my-5" id="services">
+    <div class="text-center">
+        <h1>Outros Serviços</h1>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
+                    <img src="{% static 'imagens/emergencia.jpeg' %}" class="card-img-top" alt="Emergência" style="width: 50%;">
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><h2>Emergência</h2></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
+                    <img src="{% static 'imagens/farmacia.png' %}" class="card-img-top" alt="Farmácia" style="width: 50%;">
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><h2>Farmácia</h2></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
+                    <img src="{% static 'imagens/gine.jpeg' %}" class="card-img-top" alt="Endoscopia" style="width: 50%;">
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><h2>Endoscopia</h2></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Equipe Médica -->
+<section class="container my-5" id="medicos">
+    <div class="text-center">
+        <h4 class="text-primary">Conheça Nossa Equipe</h4>
+        <h1>Médicos Especialistas</h1>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-3">
+            <div class="card shadow profile-card">
+                <img src="{% static 'imagens/medico.jpg' %}" class="rounded-circle mx-auto mt-3" alt="Dr. Ramon" style="width: 100px;">
+                <h4>Dr. Ramon</h4>
+                <p>Consultor Sênior Cirurgião</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow profile-card">
+                <img src="{% static 'imagens/medica.jpg' %}" class="rounded-circle mx-auto mt-3" alt="Drª. Carina" style="width: 100px;">
+                <h4>Drª. Carina Barbosa</h4>
+                <p>Ginecologista e Obstetra</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow profile-card">
+                <img src="{% static 'imagens/medica.jpg' %}" class="rounded-circle mx-auto mt-3" alt="Dr. Amanda" style="width: 100px;">
+                <h4>Dr. Amanda Bastos</h4>
+                <p>Cirurgiã Ortopédica</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow profile-card">
+                <img src="{% static 'imagens/medico.jpg' %}" class="rounded-circle mx-auto mt-3" alt="Dr. Marcelo" style="width: 100px;">
+                <h4>Dr. Marcelo Franco</h4>
+                <p>Consultor Médico</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock context %}
+{% include 'rodape.html' %}

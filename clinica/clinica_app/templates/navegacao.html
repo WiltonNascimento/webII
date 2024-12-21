@@ -1,0 +1,65 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{% url 'home' %}">
+    <img src="{% static 'imagens/Logo.png' %}" style="width: 100px; height: auto;">
+    Sistema de Gerenciamento Clinica Saude
+</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        {% if not request.user.is_staff %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'contato' %}">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'sobre' %}">Sobre Nós</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin_login' %}">Entrar</a>
+          </li>
+          {% endif %}
+          {% if request.user.is_staff %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'dashboard' %}">Painel de Controle <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Médico
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'ver_medicos' %}">Visualizar_Médicos</a>
+            <a class="dropdown-item" href="{% url 'adicionar_medico' %}">Adicionar_Médicos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Paciente
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'ver_pacientes'%}">Visualizar_Paciente</a>
+            <a class="dropdown-item" href="{% url 'adicionar_pacientes'%}">Adicionar_Paciente</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Agendamentos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'ver_agenda'%}">Visualizar_Agendamentos</a>
+            <a class="dropdown-item" href="{% url 'adicionar_agenda'%}">Adicionar_Agendamentos</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout_admin' %}">Logout</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>

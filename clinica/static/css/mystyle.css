@@ -1,0 +1,21 @@
+#pagina_inicial{
+    color: magenta;
+}
+
+hr.rounde{
+    border-top: 10px solid lightblue;
+    border-radius: 5px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; /* Ajuste conforme necessário */
+}
+
+.navbar p {
+    margin: 0;
+    text-align: center;
+    width: 100%; /* Garante centralização em todos os dispositivos */
+}

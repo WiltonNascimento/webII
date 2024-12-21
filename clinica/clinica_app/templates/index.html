@@ -1,0 +1,51 @@
+{% include 'base.html' %}
+{% load static %}
+{% include 'navegacao.html' %}
+
+<style>
+    .mydivstyle:hover{
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+        transform: translateY(-20px);
+    }
+
+    hr.rounde{
+    border-top: 10px solid lightblue;
+    border-radius: 5px;
+    }
+
+</style>
+
+{% block content %}
+<h1 class="text-center">Painel de controle e administração</h1>
+<br><br><br><br><br><br>
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-sm-4 mydivstyle">
+            <h2 style="color: red;">{{m}}</h2>
+            <a href="{% url 'ver_medicos' %}">
+                <h4 style="color: blue;">Médicos</h4>
+                <hr class="rounde">
+            </a>
+        </div>
+        <div class="col-sm-4 mydivstyle">
+            <h2 style="color: red;">{{p}}</h2>
+            <a href="{% url 'ver_pacientes' %}">
+                <h4 style="color: blue;">Pacientes</h4>
+                <hr class="rounde">
+            </a>
+        </div>
+        <div class="col-sm-4 mydivstyle">
+            <h2 style="color: red;">{{a}}</h2>
+            <a href="{% url 'ver_agenda' %}">
+                <h4 style="color: blue;">Consultas</h4>
+                <hr class="rounde">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
+
+{% include 'rodape.html' %}
